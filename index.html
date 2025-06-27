@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>World Clock</title>
   <link rel="stylesheet" href="clock.css" />
-</head>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.6.0/moment-timezone-with-data-1970-2030.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 <body>
   <h1>World Clock</h1>
   <form>
@@ -18,9 +21,10 @@
     </select>
   </form>
 
-  <div id="city-display"></div>
-  <div id="date-display"></div>
-  <div id="time-display"></div>
+  <div id="display-city"></div>
+  <div id="display-weather"></div>
+  <div id="display-fact"></div>
+ 
   <footer>Coded by Samantha Ward. Open-sourced on <a href="https://github.com/jazziecookie/world-clock" target="_blank">GitHub</a></footer>
   <script src="clock.js"></script>
 </body>
