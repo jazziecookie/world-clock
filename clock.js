@@ -11,6 +11,7 @@ function changeCity(event){
   //ensures every first letter is capitalised
   //splits into separate words
   //' ' ensures there is space between
+  //https://www.w3schools.com/js/js_maps.asp
   let formattedCity = city 
   .split(' ')
   .map(word => word[0]
@@ -368,7 +369,7 @@ Kerguelen: "Indian/Kerguelen",
 let timezone = timezones[formattedCity];
 let cityTime = moment.tz(timezone).format("dddd, Do MMMM, hh:mm A");
 let displayCity = document.getElementById("display-city");
-displayCity.innerHTML = `The date and time in ${formattedCity} is ${cityTime}`;
+displayCity.innerHTML = `The date and time in ${formattedCity} is <span class="time-element">${cityTime}</span>`;
 callWeatherApi(formattedCity);
 callFactApi(formattedCity);
 }
@@ -392,12 +393,14 @@ let api = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey
 axios.get(api).then(showWeather)};
 
 function showWeather(event) {
-  let displayWeather = document.querySelector("#display-weather");
-  displayWeather.innerHTML = `${Math.round(event.data.temperature.current)} °C <img src="${event.data.condition.icon_url}" class="icon-image">`;
+  let displayTemperature = document.querySelector(".display-temperature");
+  let displayIcon = document.querySelector(".display-icon");
+  displayIcon.innerHTML = `<img src="${event.data.condition.icon_url}">`;
+  displayTemperature.innerHTML = `<p></p><span class="temperature">The current temperature is ${Math.round(event.data.temperature.current)} °C</span>`;
 }
 
 function callFactApi(response){
-  let api = `https://api.shecodes.io/ai/v1/generate?prompt=give_me_an_obscure_fact_about_${encodeURIComponent(response)}&context=output in basic HTML only use br tag&key=${apiKey}`;
+  let api = `https://api.shecodes.io/ai/v1/generate?prompt=give_me_an_obscure_fact_about_${encodeURIComponent(response)}&context=output in basic HTML only use br tag and do not use underscores in your answer&key=${apiKey}`;
  axios.get(api).then(showFact);
 ;
 }

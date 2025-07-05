@@ -10,6 +10,7 @@
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 <body>
+  <div class="wrapper">
   <h1>World Clock</h1>
   <form>
     <select name="" id="city-list">
@@ -18,12 +19,23 @@
       <option value="sydney">Sydney</option>
       <option value="paris">Paris</option>
       <option value="new york">New York</option>
+      <option value="copenhagen">Copenhagen</option>
+      <option value="stockholm">Stockholm</option>
+      <option value="oslo">Oslo</option>
+      <option value="tokyo">Tokyo</option>
+      <option value="hong kong">Hong Kong</option>
     </select>
   </form>
 
   <div id="display-city"></div>
-  <div id="display-weather"></div>
+  <div id="display-weather">
+    <div class="display-temperature"></div>
+    <div class="display-icon"></div>
+    </div>
+
   <div id="display-fact"></div>
+
+  </div>
  
   <footer>Coded by Samantha Ward. Open-sourced on <a href="https://github.com/jazziecookie/world-clock" target="_blank">GitHub</a></footer>
   <script src="clock.js"></script>
